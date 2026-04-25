@@ -7,13 +7,14 @@
 
   .iconfont {
     font-size: $social-icon-font-size;
+    color: $gray;
 
     & + .iconfont {
       margin-left: $social-link-margin-left;
-    } 
+    }
 
     &:hover {
-      color: $theme-color;
+      color: $black;
     }
   }
 }

@@ -5,22 +5,18 @@
 .header {
   @include clearfix;
   padding: $header-padding;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   @import '_header/logo';
   @import '_header/menu';
-
-  .language-selector {
-    float: right;
-  }
 }
 
 @include max-screen() {
   .header {
-    padding: 50px 0 0;
-    text-align: center;
-
-    .language-selector {
-      display: none;
-    }
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 10px;
   }
 }

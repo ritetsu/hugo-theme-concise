@@ -18,36 +18,6 @@ Even.backToTop = function() {
   });
 };
 
-Even.mobileNavbar = function() {
-  const $mobileNav = $('#mobile-navbar');
-  const $mobileNavIcon = $('.mobile-navbar-icon');
-  const slideout = new Slideout({
-    'panel': document.getElementById('mobile-panel'),
-    'menu': document.getElementById('mobile-menu'),
-    'padding': 180,
-    'tolerance': 70,
-  });
-  slideout.disableTouch();
-
-  $mobileNavIcon.click(function() {
-    slideout.toggle();
-  });
-
-  slideout.on('beforeopen', function() {
-    $mobileNav.addClass('fixed-open');
-    $mobileNavIcon.addClass('icon-click').removeClass('icon-out');
-  });
-
-  slideout.on('beforeclose', function() {
-    $mobileNav.removeClass('fixed-open');
-    $mobileNavIcon.addClass('icon-out').removeClass('icon-click');
-  });
-
-  $('#mobile-panel').on('touchend', function() {
-    slideout.isOpen() && $mobileNavIcon.click();
-  });
-};
-
 Even._initToc = function() {
   const SPACING = 20;
   const $toc = $('.post-toc');
@@ -124,21 +94,6 @@ Even._initToc = function() {
   });
 };
 
-Even.fancybox = function() {
-  if ($.fancybox) {
-    $('.post-content').each(function() {
-      $(this).find('img').each(function() {
-        $(this).wrap(`<a class="fancybox" href="${this.src}" data-fancybox="gallery" data-caption="${this.title}"></a>`);
-      });
-    });
-
-    $('.fancybox').fancybox({
-      selector: '.fancybox',
-      protect: true,
-    });
-  }
-};
-
 Even.highlight = function() {
   const blocks = document.querySelectorAll('pre code');
   for (let i = 0; i < blocks.length; i++) {
@@ -182,7 +137,6 @@ Even.toc = function() {
   if (tocContainer !== null) {
     const toc = document.getElementById('TableOfContents');
     if (toc === null) {
-      // toc = true, but there are no headings
       tocContainer.parentNode.removeChild(tocContainer);
     } else {
       this._refactorToc(toc);
@@ -193,7 +147,6 @@ Even.toc = function() {
 };
 
 Even._refactorToc = function(toc) {
-  // when headings do not start with `h1`
   const oldTocList = toc.children[0];
   let newTocList = oldTocList;
   let temp;
@@ -276,4 +229,3 @@ Even.responsiveTable = function() {
     wrapper.appendChild(table);
   }
 };
-

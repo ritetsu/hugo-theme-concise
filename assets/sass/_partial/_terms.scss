@@ -5,12 +5,12 @@
 .terms {
   margin: 2em 0 3em;
   text-align: center;
-  font-family: $global-serif-font-family;
 
   .terms-title {
     display: inline-block;
     font-size: $terms-title-size;
-    color: $theme-color;
+    font-weight: 600;
+    color: $black;
     border-bottom: $terms-title-border-bottom;
   }
 

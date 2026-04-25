@@ -3,20 +3,16 @@
 // =============================
 
 .site-navbar {
-  float: right;
-
   .menu {
-    display: inline-block;
-    position: relative;
+    display: flex;
+    align-items: center;
     padding-left: 0;
-    padding-right: 25px;
-    font-family: $global-serif-font-family;
+    margin: 0;
+    list-style: none;
 
     .menu-item {
-      display: inline-block;
-
       & + .menu-item {
-        margin-left: $menu-item-margin-left;;
+        margin-left: $menu-item-margin-left;
       }
 
       @include underline-from-center;
@@ -24,12 +20,12 @@
 
     .menu-item-link {
       font-size: $menu-link-font-size;
-    }
-  }
-}
+      color: $dark-gray;
+      transition: color 0.2s ease;
 
-@include max-screen() {
-  .site-navbar {
-    display: none;
+      &:hover {
+        color: $black;
+      }
+    }
   }
 }

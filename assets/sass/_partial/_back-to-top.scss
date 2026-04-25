@@ -11,9 +11,11 @@
   transition-timing-function: ease-out;
   transition-duration: 0.3s;
   z-index: 10;
+  color: $dark-gray;
 
   &:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
+    color: $black;
   }
 }
 
